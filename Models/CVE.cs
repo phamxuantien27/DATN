@@ -16,7 +16,7 @@ namespace Update.Models
         }
 
         [Key]
-        [StringLength(15)]
+        [StringLength(20)]
         public string MaCVE { get; set; }
 
         public string MoTa { get; set; }
@@ -24,7 +24,8 @@ namespace Update.Models
         [Column(TypeName = "date")]
         public DateTime? NgayPhatHien { get; set; }
 
-        public decimal? MucDo { get; set; }
+        [StringLength(20)]
+        public string MucDo { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PHIENBAN> PHIENBANs { get; set; }

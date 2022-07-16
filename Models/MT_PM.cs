@@ -10,16 +10,15 @@ namespace Update.Models
     {
         [Key]
         [Column(Order = 0)]
-        [StringLength(10)]
-        public string MaMT { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int MaMT { get; set; }
 
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaPB { get; set; }
 
-        [Column(TypeName = "date")]
-        public DateTime? NgayCaiDat { get; set; }
+        public bool? LaHDH { get; set; }
 
         public virtual MAYTINH MAYTINH { get; set; }
 

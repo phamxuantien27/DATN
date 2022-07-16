@@ -4,21 +4,26 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Update.Models;
 
 namespace Update.Controllers
 {
     public class MayTinhController : ApiController
     {
+        public Model1 db = new Model1();
         // GET api/<controller>
-        public IEnumerable<string> Get()
+        public IEnumerable<MAYTINH> Get()
         {
-            return new string[] { "value1", "value2" };
+            MAYTINH mt = new MAYTINH();
+            mt.PHANMEM.TenPhanMem;
+            P
+            return db.MAYTINHs.ToList();
         }
 
         // GET api/<controller>/5
-        public string Get(int id)
+        public MAYTINH Get(int id)
         {
-            return "value";
+            return db.MAYTINHs.Where(x=>x.MaMT==id).FirstOrDefault();
         }
 
         // POST api/<controller>

@@ -18,19 +18,13 @@ namespace Update.Models
 
         public int id { get; set; }
 
-        [StringLength(10)]
-        public string MaPM { get; set; }
+        public int? MaPM { get; set; }
 
-        [StringLength(20)]
-        public string MaHDH { get; set; }
-
-        [StringLength(15)]
+        [StringLength(30)]
         public string TenPhienBan { get; set; }
 
         [StringLength(10)]
         public string NgayPhatHanh { get; set; }
-
-        public virtual HEDIEUHANH HEDIEUHANH { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MT_PM> MT_PM { get; set; }

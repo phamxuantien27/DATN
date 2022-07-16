@@ -16,10 +16,8 @@ namespace Update.Models
         }
 
         [Key]
-        [StringLength(10)]
-        public string MaPM { get; set; }
+        public int MaPM { get; set; }
 
-        [StringLength(50)]
         public string TenPhanMem { get; set; }
 
         [StringLength(50)]

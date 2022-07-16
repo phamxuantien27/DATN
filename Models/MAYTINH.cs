@@ -16,16 +16,12 @@ namespace Update.Models
         }
 
         [Key]
-        [StringLength(10)]
-        public string MaMT { get; set; }
+        public int MaMT { get; set; }
 
         [StringLength(50)]
         public string TenMT { get; set; }
 
-        [StringLength(20)]
-        public string MaHDH { get; set; }
-
-        [StringLength(20)]
+        [StringLength(30)]
         public string MAC { get; set; }
 
         [StringLength(15)]
