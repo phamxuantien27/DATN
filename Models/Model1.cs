@@ -60,10 +60,6 @@ namespace Update.Models
                 .IsFixedLength();
 
             modelBuilder.Entity<PHIENBAN>()
-                .Property(e => e.NgayPhatHanh)
-                .IsFixedLength();
-
-            modelBuilder.Entity<PHIENBAN>()
                 .HasMany(e => e.MT_PM)
                 .WithRequired(e => e.PHIENBAN)
                 .HasForeignKey(e => e.MaPB)

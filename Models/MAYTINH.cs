@@ -27,6 +27,10 @@ namespace Update.Models
         [StringLength(15)]
         public string IP { get; set; }
 
+        public string HDH { get; set; }
+
+        public bool? DaCapNhat { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MT_PM> MT_PM { get; set; }
     }

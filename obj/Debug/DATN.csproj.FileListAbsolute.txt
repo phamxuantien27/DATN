@@ -167,8 +167,8 @@ C:\Users\ADMIN\Desktop\GitHub\DATN\bin\System.Net.Http.Formatting.xml
 C:\Users\ADMIN\Desktop\GitHub\DATN\bin\System.Web.Http.xml
 C:\Users\ADMIN\Desktop\GitHub\DATN\bin\System.Web.Http.WebHost.xml
 C:\Users\ADMIN\Desktop\GitHub\DATN\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\ADMIN\Desktop\GitHub\DATN\obj\Debug\DATN.csproj.AssemblyReference.cache
 C:\Users\ADMIN\Desktop\GitHub\DATN\obj\Debug\DATN.csproj.CoreCompileInputs.cache
 C:\Users\ADMIN\Desktop\GitHub\DATN\obj\Debug\DATN.csproj.CopyComplete
 C:\Users\ADMIN\Desktop\GitHub\DATN\obj\Debug\Update.dll
 C:\Users\ADMIN\Desktop\GitHub\DATN\obj\Debug\Update.pdb
+C:\Users\ADMIN\Desktop\GitHub\DATN\obj\Debug\DATN.csproj.AssemblyReference.cache

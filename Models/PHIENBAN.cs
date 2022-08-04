@@ -20,11 +20,11 @@ namespace Update.Models
 
         public int? MaPM { get; set; }
 
-        [StringLength(30)]
+        [StringLength(50)]
         public string TenPhienBan { get; set; }
 
-        [StringLength(10)]
-        public string NgayPhatHanh { get; set; }
+        [Column(TypeName = "date")]
+        public DateTime? NgayPhatHanh { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MT_PM> MT_PM { get; set; }

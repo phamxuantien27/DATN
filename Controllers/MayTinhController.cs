@@ -8,6 +8,7 @@ using Update.Models;
 
 namespace Update.Controllers
 {
+    [RoutePrefix("api/MayTinh")]
     public class MayTinhController : ApiController
     {
         public Model1 db = new Model1();
@@ -15,8 +16,6 @@ namespace Update.Controllers
         public IEnumerable<MAYTINH> Get()
         {
             MAYTINH mt = new MAYTINH();
-            mt.PHANMEM.TenPhanMem;
-            P
             return db.MAYTINHs.ToList();
         }
 
@@ -25,7 +24,13 @@ namespace Update.Controllers
         {
             return db.MAYTINHs.Where(x=>x.MaMT==id).FirstOrDefault();
         }
-
+        [Route("HDH/{id:int}")]
+        [HttpGet]
+        public PHANMEM HDH(int id)
+        {
+            var mt_pm = db.MT_PM.Where(x => x.MaMT == id && x.LaHDH == true).FirstOrDefault();
+            return db.PHANMEMs.Where(x => x.MaPM == mt_pm.PHIENBAN.PHANMEM.MaPM).FirstOrDefault();
+        }
         // POST api/<controller>
         public void Post([FromBody] string value)
         {

@@ -4,23 +4,25 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Update.Models;
 
 namespace Update.Controllers
 {
+    [RoutePrefix("api/PhanMem")]
     public class PhanMemController : ApiController
     {
+        public Model1 db = new Model1();
         // GET api/<controller>
-        public IEnumerable<string> Get()
+        public IEnumerable<PHANMEM> Get()
         {
-            return new string[] { "value1", "value2" };
+            return db.PHANMEMs.ToList();
         }
 
         // GET api/<controller>/5
-        public string Get(int id)
+        public PHANMEM Get(int id)
         {
-            return "value";
+            return db.PHANMEMs.Where(x=>x.MaPM == id).FirstOrDefault();
         }
-
         // POST api/<controller>
         public void Post([FromBody] string value)
         {
