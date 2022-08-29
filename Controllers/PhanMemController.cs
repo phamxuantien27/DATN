@@ -1,39 +1,89 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
+using System.Web;
+using System.Web.Mvc;
 
 namespace Update.Controllers
 {
-    public class PhanMemController : ApiController
+    public class PhanMemController : Controller
     {
-        // GET api/<controller>
-        public IEnumerable<string> Get()
+        // GET: PhanMem
+        public ActionResult Index()
         {
-            return new string[] { "value1", "value2" };
+            return View();
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        // GET: PhanMem/Details/5
+        public ActionResult Details(int id)
         {
-            return "value";
+            return View();
         }
 
-        // POST api/<controller>
-        public void Post([FromBody] string value)
+        // GET: PhanMem/Create
+        public ActionResult Create()
         {
+            return View();
         }
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody] string value)
+        // POST: PhanMem/Create
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
         {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
+        // GET: PhanMem/Edit/5
+        public ActionResult Edit(int id)
         {
+            return View();
+        }
+
+        // POST: PhanMem/Edit/5
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: PhanMem/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: PhanMem/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }
