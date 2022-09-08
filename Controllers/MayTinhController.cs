@@ -4,33 +4,23 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Update.Models;
 
 namespace Update.Controllers
 {
-    [RoutePrefix("api/MayTinh")]
     public class MayTinhController : ApiController
     {
-        public Model1 db = new Model1();
         // GET api/<controller>
-        public IEnumerable<MAYTINH> Get()
+        public IEnumerable<string> Get()
         {
-            MAYTINH mt = new MAYTINH();
-            return db.MAYTINHs.ToList();
+            return new string[] { "value1", "value2" };
         }
 
         // GET api/<controller>/5
-        public MAYTINH Get(int id)
+        public string Get(int id)
         {
-            return db.MAYTINHs.Where(x=>x.MaMT==id).FirstOrDefault();
+            return "value";
         }
-        [Route("HDH/{id:int}")]
-        [HttpGet]
-        public PHANMEM HDH(int id)
-        {
-            var mt_pm = db.MT_PM.Where(x => x.MaMT == id && x.LaHDH == true).FirstOrDefault();
-            return db.PHANMEMs.Where(x => x.MaPM == mt_pm.PHIENBAN.PHANMEM.MaPM).FirstOrDefault();
-        }
+
         // POST api/<controller>
         public void Post([FromBody] string value)
         {

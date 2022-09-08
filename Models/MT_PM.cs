@@ -8,20 +8,20 @@ namespace Update.Models
 
     public partial class MT_PM
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int id { get; set; }
+
         public int MaMT { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int MaPB { get; set; }
+        public int MaPM { get; set; }
 
-        public bool? LaHDH { get; set; }
+        [StringLength(50)]
+        public string PhienBan { get; set; }
+
+        [StringLength(10)]
+        public string TrangThai { get; set; }
 
         public virtual MAYTINH MAYTINH { get; set; }
 
-        public virtual PHIENBAN PHIENBAN { get; set; }
+        public virtual PHANMEM PHANMEM { get; set; }
     }
 }

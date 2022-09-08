@@ -1,14 +1,67 @@
 ﻿
-@{
-    ViewBag.Title = "Luutru";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+@{ ViewBag.Title = "Luutru";
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+<div class="list_app">
+    <div class="">
+        <h3>Danh sách phần mềm</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên phần mềm</th>
+                    <th scope="col">Phiên bản mới nhất</th>
+                    <th scope="col">File tải</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Update.Models.PHANMEM x in ViewBag.PM)
+                {
+    <tr>
+        <th scope="col" class="stt">1</th>
+        <td style="text-align: left; width: 200px">@x.TenPhanMem</td>
+        <td>@x.PhienBanMoiNhat</td>
+        <td style="width: 150px" id="link_@x.MaPM"></td>
+        <td>
+            <form method="post" action="UploadFile" onsubmit="false">
+                <div class="row">
+                    <input type="file" style="width: 75%; display: inline-block" id="@x.MaPM" />
+                    <input type="button" value="Upload" style="width:20%; display: inline-block" onclick="ajax(@x.MaPM)" />
+                </div>
+            </form>
+        </td>
+    </tr>
 }
 
+
+            </tbody>
+        </table>
+    </div>
+</div>
 <script type="text/javascript">
     $(document).ready(function () {
-        $("#luutru").addClass("active");
-        $("#phanmem").removeClass("active");
-        $("#dashboard").removeClass("active");
+
     });
+    function ajax(maPM) {
+        maPM = maPM.toString();
+        filename = $("#" + maPM).val().split('\\').pop();
+        if (filename == "") {
+            $("#" + maPM).trigger('click');
+            return;
+        }
+        $.post("UploadFile",
+            {
+                MaPM: maPM,
+                Filename: filename
+            },
+            function (response) {
+                if (response == "Success") {
+                    id = "#link_" + maPM;
+                    $(id).empty();
+                    $(id).html(filename);
+                }
+                alert(response);
+            })
+    }
 </script>
 

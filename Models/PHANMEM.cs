@@ -12,7 +12,8 @@ namespace Update.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PHANMEM()
         {
-            PHIENBANs = new HashSet<PHIENBAN>();
+            MT_PM = new HashSet<MT_PM>();
+            PM_CVE = new HashSet<PM_CVE>();
         }
 
         [Key]
@@ -29,7 +30,13 @@ namespace Update.Models
         [Column(TypeName = "date")]
         public DateTime? NgayPhatHanh { get; set; }
 
+        [StringLength(100)]
+        public string Download { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHIENBAN> PHIENBANs { get; set; }
+        public virtual ICollection<MT_PM> MT_PM { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PM_CVE> PM_CVE { get; set; }
     }
 }

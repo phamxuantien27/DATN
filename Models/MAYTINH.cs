@@ -13,6 +13,7 @@ namespace Update.Models
         public MAYTINH()
         {
             MT_PM = new HashSet<MT_PM>();
+            TAIKHOANs = new HashSet<TAIKHOAN>();
         }
 
         [Key]
@@ -27,11 +28,17 @@ namespace Update.Models
         [StringLength(15)]
         public string IP { get; set; }
 
+        [StringLength(100)]
+        public string donvi { get; set; }
+
         public string HDH { get; set; }
 
         public bool? DaCapNhat { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MT_PM> MT_PM { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TAIKHOAN> TAIKHOANs { get; set; }
     }
 }

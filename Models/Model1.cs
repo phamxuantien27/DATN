@@ -16,7 +16,7 @@ namespace Update.Models
         public virtual DbSet<MAYTINH> MAYTINHs { get; set; }
         public virtual DbSet<MT_PM> MT_PM { get; set; }
         public virtual DbSet<PHANMEM> PHANMEMs { get; set; }
-        public virtual DbSet<PHIENBAN> PHIENBANs { get; set; }
+        public virtual DbSet<PM_CVE> PM_CVE { get; set; }
         public virtual DbSet<TAIKHOAN> TAIKHOANs { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -28,11 +28,6 @@ namespace Update.Models
             modelBuilder.Entity<CVE>()
                 .Property(e => e.MucDo)
                 .IsFixedLength();
-
-            modelBuilder.Entity<CVE>()
-                .HasMany(e => e.PHIENBANs)
-                .WithMany(e => e.CVEs)
-                .Map(m => m.ToTable("PB_CVE").MapLeftKey("MaCVE").MapRightKey("MaPB"));
 
             modelBuilder.Entity<MAYTINH>()
                 .Property(e => e.TenMT)
@@ -47,26 +42,37 @@ namespace Update.Models
                 .IsFixedLength();
 
             modelBuilder.Entity<MAYTINH>()
+                .Property(e => e.donvi)
+                .IsFixedLength();
+
+            modelBuilder.Entity<MAYTINH>()
                 .HasMany(e => e.MT_PM)
                 .WithRequired(e => e.MAYTINH)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<MT_PM>()
+                .Property(e => e.PhienBan)
+                .IsFixedLength();
+
+            modelBuilder.Entity<MT_PM>()
+                .Property(e => e.TrangThai)
+                .IsFixedLength();
 
             modelBuilder.Entity<PHANMEM>()
                 .Property(e => e.PhienBanMoiNhat)
                 .IsFixedLength();
 
-            modelBuilder.Entity<PHIENBAN>()
-                .Property(e => e.TenPhienBan)
+            modelBuilder.Entity<PHANMEM>()
+                .Property(e => e.Download)
                 .IsFixedLength();
 
-            modelBuilder.Entity<PHIENBAN>()
+            modelBuilder.Entity<PHANMEM>()
                 .HasMany(e => e.MT_PM)
-                .WithRequired(e => e.PHIENBAN)
-                .HasForeignKey(e => e.MaPB)
+                .WithRequired(e => e.PHANMEM)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<TAIKHOAN>()
-                .Property(e => e.id)
+            modelBuilder.Entity<PM_CVE>()
+                .Property(e => e.MaCVE)
                 .IsFixedLength();
 
             modelBuilder.Entity<TAIKHOAN>()
@@ -78,7 +84,7 @@ namespace Update.Models
                 .IsFixedLength();
 
             modelBuilder.Entity<TAIKHOAN>()
-                .Property(e => e.author)
+                .Property(e => e.email)
                 .IsFixedLength();
         }
     }

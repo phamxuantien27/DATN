@@ -12,7 +12,7 @@ namespace Update.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CVE()
         {
-            PHIENBANs = new HashSet<PHIENBAN>();
+            PM_CVE = new HashSet<PM_CVE>();
         }
 
         [Key]
@@ -28,6 +28,6 @@ namespace Update.Models
         public string MucDo { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PHIENBAN> PHIENBANs { get; set; }
+        public virtual ICollection<PM_CVE> PM_CVE { get; set; }
     }
 }

@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="list_app">
+    <div class="">
+        <br />
+        <h3>Danh sách phần mềm đã cài đặt</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên phần mềm</th>
+                    <th scope="col">Phiên bản hiện tại</th>
+                    <th scope="col">Phiên bản mới nhất</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Update.Models.MT_PM x in ViewBag.PM)
+                {
+    <tr>
+        <th scope="col" class="stt">1</th>
+        <td style="text-align: left">@x.PHANMEM.TenPhanMem</td>
+        <td>@x.PhienBan</td>
+        <td>@x.PHANMEM.PhienBanMoiNhat</td>
+        <td>@Html.ActionLink("Download", "DownloadFile", new { name = x.PHANMEM.Download })</td>
+    </tr>}
+            </tbody>
+        </table>
+        <br />
+        <h3>Danh sách phần mềm chưa cài đặt</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Tên phần mềm</th>
+                    <th scope="col">Phiên bản hiện tại</th>
+                    <th scope="col">Phiên bản mới nhất</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Update.Models.PHANMEM x in ViewBag.PM1)
+                {
+    <tr>
+        <th scope="col" class="stt">1</th>
+        <td style="text-align: left">@x.TenPhanMem</td>
+        <td>@x.PhienBanMoiNhat</td>
+        <td>@Html.ActionLink("Download", "DownloadFile", new { name = x.Download })</td>
+    </tr>}
+            </tbody>
+        </table>
+    </div>
+</div>
+

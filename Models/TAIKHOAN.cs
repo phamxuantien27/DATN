@@ -9,16 +9,22 @@ namespace Update.Models
     [Table("TAIKHOAN")]
     public partial class TAIKHOAN
     {
-        [StringLength(10)]
-        public string id { get; set; }
+        public int id { get; set; }
+
+        public int? MaMT { get; set; }
 
         [StringLength(20)]
         public string username { get; set; }
 
-        [StringLength(10)]
+        [StringLength(20)]
         public string password { get; set; }
 
-        [StringLength(10)]
-        public string author { get; set; }
+        [StringLength(50)]
+        public string email { get; set; }
+
+        [StringLength(100)]
+        public string donvi { get; set; }
+
+        public virtual MAYTINH MAYTINH { get; set; }
     }
 }

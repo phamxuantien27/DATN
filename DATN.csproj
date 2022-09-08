@@ -150,20 +150,51 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202208260822120_DATN.cs" />
+    <Compile Include="Migrations\202208260822120_DATN.Designer.cs">
+      <DependentUpon>202208260822120_DATN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CVE.cs" />
     <Compile Include="Models\MAYTINH.cs" />
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\MT_PM.cs" />
     <Compile Include="Models\PHANMEM.cs" />
-    <Compile Include="Models\PHIENBAN.cs" />
+    <Compile Include="Models\PM_CVE.cs" />
     <Compile Include="Models\TAIKHOAN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CVE_NEW.cs" />
+    <Compile Include="ViewModels\DanhSachMayTinh.cs" />
+    <Compile Include="ViewModels\IndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Views\Shared\form-layouts-vertical.html" />
     <Content Include="Areas\Admin\Views\Shared\forms-basic-inputs.html" />
     <Content Include="Areas\Admin\Views\Shared\ui-modals.html" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-grid.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-grid.min.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-reboot.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-reboot.min.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-utilities.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-utilities.min.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap.min.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap.rtl.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap.rtl.min.css" />
+    <Content Include="assets\bootstrap-5.0.2-dist\js\bootstrap.bundle.js" />
+    <Content Include="assets\bootstrap-5.0.2-dist\js\bootstrap.bundle.min.js" />
+    <Content Include="assets\bootstrap-5.0.2-dist\js\bootstrap.esm.js" />
+    <Content Include="assets\bootstrap-5.0.2-dist\js\bootstrap.esm.min.js" />
+    <Content Include="assets\bootstrap-5.0.2-dist\js\bootstrap.js" />
+    <Content Include="assets\bootstrap-5.0.2-dist\js\bootstrap.min.js" />
     <Content Include="assets\css\demo.css" />
+    <Content Include="assets\css\style.css" />
     <Content Include="assets\img\avatars\1.png" />
     <Content Include="assets\img\avatars\5.png" />
     <Content Include="assets\img\avatars\6.png" />
@@ -204,6 +235,17 @@
     <Content Include="assets\img\illustrations\girl-doing-yoga-light.png" />
     <Content Include="assets\img\illustrations\man-with-laptop-light.png" />
     <Content Include="assets\img\illustrations\page-misc-error-light.png" />
+    <Content Include="assets\img\images\272904099_1524490354617801_350160720973920752_n.jpg" />
+    <Content Include="assets\img\images\297846096_1497013970766800_1721871641275089031_n.jpg" />
+    <Content Include="assets\img\images\732222.png" />
+    <Content Include="assets\img\images\avatar-2.png" />
+    <Content Include="assets\img\images\Google_Chrome_icon_%282011%29.png" />
+    <Content Include="assets\img\images\images.png" />
+    <Content Include="assets\img\images\kisspng-windows-10-microsoft-windows-operating-system-wind-windows-png-free-download-png-image-5a78cd1b66ed92.0678292515178662674216.jpg" />
+    <Content Include="assets\img\images\logo.png" />
+    <Content Include="assets\img\images\matt-icons_security-low1.png" />
+    <Content Include="assets\img\images\product-box-kts.png" />
+    <Content Include="assets\img\images\Security_1.png" />
     <Content Include="assets\img\layouts\layout-container-light.png" />
     <Content Include="assets\img\layouts\layout-fluid-light.png" />
     <Content Include="assets\img\layouts\layout-without-menu-light.png" />
@@ -214,6 +256,7 @@
     <Content Include="assets\js\form-basic-inputs.js" />
     <Content Include="assets\js\main.js" />
     <Content Include="assets\js\pages-account-settings-account.js" />
+    <Content Include="assets\js\script.js" />
     <Content Include="assets\js\ui-modals.js" />
     <Content Include="assets\js\ui-popover.js" />
     <Content Include="assets\js\ui-toasts.js" />
@@ -272,6 +315,28 @@
     <Content Include="Areas\Admin\Views\Admin\Phanmem.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\Maytinh.cshtml" />
     <Content Include="Areas\Admin\Views\Admin\CVE.cshtml" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-grid.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-grid.min.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-reboot.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-reboot.min.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-utilities.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-utilities.min.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap.min.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap.rtl.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\css\bootstrap.rtl.min.css.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\js\bootstrap.bundle.js.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\js\bootstrap.bundle.min.js.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\js\bootstrap.esm.js.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\js\bootstrap.esm.min.js.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\js\bootstrap.js.map" />
+    <Content Include="assets\bootstrap-5.0.2-dist\js\bootstrap.min.js.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -285,9 +350,10 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="tasks\build.js" />
     <Content Include="tasks\prod.js" />
+    <Content Include="Views\forms-input-groups.html" />
     <Content Include="Views\index.html" />
     <Content Include="Views\auth-login-basic.html" />
-    <Content Include="Views\tables-basic.html" />
+    <Content Include="Storage\tables-basic.html" />
     <Content Include="Views\ui-buttons.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -392,6 +458,8 @@
     <Content Include="Views\Home\Phanmem.cshtml" />
     <Content Include="Views\Home\Luutru.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\PhanMem\Index.cshtml" />
+    <Content Include="Views\Home\_DSMayTinh.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -412,6 +480,11 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202208260822120_DATN.resx">
+      <DependentUpon>202208260822120_DATN.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

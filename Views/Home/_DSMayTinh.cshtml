@@ -1,0 +1,45 @@
+﻿
+<div class="list">
+    <h4 class="body_list1">DANH SÁCH MÁY TÍNH</h4>
+    <div class="body_list">
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">STT</th>
+                            <th scope="col">Tên máy</th>
+                            <th scope="col">IP</th>
+                            <th scope="col">Phầm mềm</th>
+                            <th scope="col"><span>Trạng thái</span></th>
+                            <th scope="col"><span></span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int stt = 0;}
+                        @foreach (Update.Models.MAYTINH x in Model)
+                        {
+                            stt++;
+                            <tr>
+                                <th scope="row">@stt</th>
+                                <td>@x.TenMT</td>
+                                <td>@x.IP</td>
+                                <td>@x.MT_PM.Count()</td>
+                                @if (@x.DaCapNhat == false)
+                                {
+                                    <td><span class="badge alert-danger">Chưa cập nhật</span> </td>
+                                    <td><button class="badge alert-info">Gửi thông báo</button> </td>
+ }
+                                else
+                                {
+                                    <td><span class="badge alert-success">Đã cập nhật</span> </td>
+                                }
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
