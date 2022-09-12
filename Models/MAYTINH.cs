@@ -32,6 +32,9 @@ namespace Update.Models
 
         public bool? DaCapNhat { get; set; }
 
+        [StringLength(100)]
+        public string donvi { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MT_PM> MT_PM { get; set; }
     }

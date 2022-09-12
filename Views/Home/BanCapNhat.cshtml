@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "BanCapNhat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="list_app">
+    <div class="col-lg-12">
+        <h3 style="margin:30px 0px">Danh sách bản cập nhật</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Release Date</th>
+                    <th scope="col">Product</th>
+                    <th scope="col">Impact</th>
+                    <th scope="col">Max Severity</th>
+                    <th scope="col">Details </th>
+                    <th scope="col">Download </th>
+
+                    <th scope="col">Vector string </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{ int i = 1;}
+                @foreach (Update.ViewModels.Value x in ViewBag.BanCapNhat)
+                {
+                <tr>
+                    <th scope="row">@i.ToString()</th>
+                    <td>@x.releaseDate</td>
+                    <td>@x.product</td>
+                    <td>@x.impact</td>
+                    <td>@x.severity</td>
+                    @foreach (Update.ViewModels.BanCapNhat y in @x.kbArticles)
+                    {
+                        <td><a href="#">@y.articleUrl</a></td>
+                        break;
+                    }
+
+                    <td>@x.cveNumber</td>
+
+                    <td><a href="#">@x.vectorString</a></td>
+                    @{i = i + 1;}
+                </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+

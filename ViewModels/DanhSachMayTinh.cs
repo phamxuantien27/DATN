@@ -17,5 +17,6 @@ namespace Update.ViewModels
         public string trangThai { get; set; }
         public string  tenpm { get; set; }
         public string phienBanMoiNhat { get; set; }
+        public string donvi { get; set; }
     }
 }

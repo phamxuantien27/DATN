@@ -9,95 +9,27 @@
             <h4>DANH SÁCH MÁY TÍNH</h4>
             <div class="computer">
                 <div class="row">
-                    <div class="col-lg-4">
-                        <div class="cart_body">
-                            <div class="cart_body_icon">
-                                <img src="~/assets/img/images/logo.png" alt="">
-                                <h4>Tiểu đoàn 1</h4>
-                                <img class="img_arlet" src="~/assets/img/images/Security_1.png" alt="">
-                            </div>
-                            <div class="cart_body_number">
-                                <a href=""><span style="color: red;">7</span>/10 Máy tính chưa cập nhật </a>
-                            </div>
-                            <div class="cart_body_list">
-                                <a href="" data-toggle="modal" data-target="#exampleModalCenter">Xem danh sách <i class="fas fa-angle-double-right"></i> </a>
+                    @foreach (Update.ViewModels.SoLuongMayTinh y in ViewBag.SL)
+                    {
+                        <div class="col-lg-4">
+                            <div class="cart_body">
+                                <div class="cart_body_icon">
+                                    <img src="~/assets/img/images/logo.png" alt="">
+                                    <h4>@y.donvi</h4>
+                                    <img class="img_arlet" src="~/assets/img/images/Security_1.png" alt="">
+                                </div>
+                                <div class="cart_body_number">
+                                    <a href=""><span style="color: red;">@y.sl</span> Máy tính chưa cập nhật </a>
+                                </div>
+                                <div class="cart_body_list">
+                                    <a href="" data-toggle="modal" data-target="#exampleModalCenter" onclick="onClickShowMT(`@y.donvi`)">Xem danh sách <i class="fas fa-angle-double-right"></i> </a>
+                                </div>
+
                             </div>
 
                         </div>
+                    }
 
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="cart_body">
-                            <div class="cart_body_icon">
-                                <img src="~/assets/img/images/logo.png" alt="">
-                                <h4>Khoa hóa lý kỹ thuật</h4>
-                                <img class="img_arlet" src="~/assets/img/images/matt-icons_security-low1.png" alt="">
-                            </div>
-                            <div class="cart_body_number">
-                                <a href=""><span style="color: red;">7</span>/10 Máy tính chưa cập nhật </a>
-                            </div>
-                            <div class="cart_body_list">
-                                <a href="">Xem danh sách <i class="fas fa-angle-double-right"></i> </a>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="cart_body">
-                            <div class="cart_body_icon">
-                                <img src="~/assets/img/images/logo.png" alt="">
-                                <h4>Tiểu đoàn 1</h4>
-                            </div>
-                            <div class="cart_body_number">
-                                <a href=""><span style="color: red;">7</span>/10 Máy tính chưa cập nhật </a>
-                            </div>
-                            <div class="cart_body_list">
-                                <a href="">Xem danh sách <i class="fas fa-angle-double-right"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="cart_body">
-                            <div class="cart_body_icon">
-                                <img src="~/assets/img/images/logo.png" alt="">
-                                <h4>Tiểu đoàn 1</h4>
-                            </div>
-                            <div class="cart_body_number">
-                                <a href=""><span style="color: red;">7</span>/10 Máy tính chưa cập nhật </a>
-                            </div>
-                            <div class="cart_body_list">
-                                <a href="">Xem danh sách <i class="fas fa-angle-double-right"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="cart_body">
-                            <div class="cart_body_icon">
-                                <img src="~/assets/img/images/logo.png" alt="">
-                                <h4>Tiểu đoàn 1</h4>
-                            </div>
-                            <div class="cart_body_number">
-                                <a href=""><span style="color: red;">7</span>/10 Máy tính chưa cập nhật </a>
-                            </div>
-                            <div class="cart_body_list">
-                                <a href="">Xem danh sách <i class="fas fa-angle-double-right"></i> </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="cart_body">
-                            <div class="cart_body_icon">
-                                <img src="~/assets/img/images/logo.png" alt="">
-                                <h4>Tiểu đoàn 1</h4>
-                            </div>
-                            <div class="cart_body_number">
-                                <a href=""><span style="color: red;">7</span>/10 Máy tính chưa cập nhật </a>
-                            </div>
-                            <div class="cart_body_list">
-                                <a href="">Xem danh sách <i class="fas fa-angle-double-right"></i> </a>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
 
@@ -154,11 +86,11 @@
                                 </tr>
                             </thead>
                             <tbody>
-
+                                @{ int i = 1;}
                                 @foreach (Update.ViewModels.DanhSachMayTinh x in ViewBag.DS)
                                 {
                                 <tr>
-                                    <th scope="row">1</th>
+                                    <th scope="row">@i.ToString()</th>
                                     <td>@x.tenMT</td>
                                     <td>@x.ip</td>
                                     <td>@x.mac</td>
@@ -166,12 +98,15 @@
                                     <td>@x.phienBanHienTai</td>
                                     <td>@x.phienBanMoiNhat</td>
                                     <td>@x.ngayPhatHanh</td>
-                                    @if (@x.phienBanHienTai !=@x.phienBanMoiNhat)
+                                    @if (@x.phienBanHienTai != @x.phienBanMoiNhat)
                                     {
                                         x.trangThai = "1         ";
-                                    }                                
+                                    }
                                     <td><span class="trangthai">@x.trangThai</span> <button class="btn2">Gửi thông báo</button></td>
-                                </tr>
+                                    @{i = i + 1;}
+                                </tr>                
+                                                      
+                                
                                 }
                             </tbody>
                         </table>
@@ -193,13 +128,14 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <h3 class="modal-title" id="exampleModalLongTitle">DANH SÁCH MÁY TÍNH</h3>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <span id="tendonvi"></span>
+                        <div id="DetailTableContent"> </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -209,11 +145,30 @@
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#dashboard").addClass("active");
-            $("#phanmem").removeClass("active");
-            $("#luutru").removeClass("active");
-        });
-    </script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#dashboard").addClass("active");
+        $("#phanmem").removeClass("active");
+        $("#luutru").removeClass("active");
 
+    });
+    function onClickShowMT(tendonvi) {
+
+        $.ajax({
+            type: "POST",
+            url: "GetImageFromLogId",
+            data: { tendonvi: tendonvi },
+            success: function (data) {
+                $("#DetailTableContent").html(data);
+
+            },
+            error: function () {
+                alert('error!');
+            }
+        });
+
+    }
+
+
+
+</script>
